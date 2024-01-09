@@ -13,6 +13,16 @@ export async function loginUser(body){
 }
 
 
+export async function registerUser(body){
+
+    try{
+        const res = await axios.post(`${url}/auth/register`, body);
+        return res;
+    }catch(e){
+        console.log(`Error in registeruser method ${e}`)
+    }
+}
+
 
 export async function validUser(){
     try{
