@@ -1,6 +1,6 @@
 ## Real Time Chat Application with MERN - Learning WebSockets , socket.io
 
--This is a real-time chat website that allows users to connect with each other and chat in real-time. It is being built using the MERN stack (MongoDB, Express.js, React.js, and Node.js), Socket.io, Redux Toolkit, and Tailwind CSS. 
+- This is a real-time chat website that allows users to connect with each other and chat in real-time. It is being built using the MERN stack (MongoDB, Express.js, React.js, and Node.js), Socket.io, Redux Toolkit, and Tailwind CSS. 
 
 ## Feature
 ----------
