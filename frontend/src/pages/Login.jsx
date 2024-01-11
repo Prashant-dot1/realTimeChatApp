@@ -2,6 +2,7 @@ import { useState } from "react"
 import {toast}  from "react-toastify"
 import { loginUser } from "../apis/auth";
 import {BsEmojiLaughing , BsEmojiExpressionless} from "react-icons/bs"
+import Home from './Home';
 
 
 const defaultData = {
@@ -31,7 +32,7 @@ function Login () {
                 toast.success("Successfully login!")
                 console.log("login success")
                 setIsLoading(false);
-                // pageRoute("/chats");
+                pageRoute("/chats");
             }
             else{
                 setIsLoading(false)

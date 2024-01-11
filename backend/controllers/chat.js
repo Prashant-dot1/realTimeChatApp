@@ -79,8 +79,8 @@ const createGroup = async (req,res) => {
             message : "Need to have name and users to create a group"
         })
     }
-    // const parsedUsers = JSON.parse(users);
-    const parsedUsers = users;
+    const parsedUsers = JSON.parse(users);
+    // const parsedUsers = users;
     if(parsedUsers.length < 2){
         return res.status(400).json({
             msg : "Group should've more than 2 users"

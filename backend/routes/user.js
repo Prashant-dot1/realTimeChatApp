@@ -1,6 +1,6 @@
 const {Router} = require("express");
 const { userMiddleware } = require("../middlewares/user");
-const {registerUser , loginUser , validUser} = require("../controllers/user");
+const {registerUser , loginUser , validUser , searchUsers} = require("../controllers/user");
 const router = Router();
 
 //user register
@@ -11,6 +11,7 @@ router.post("/auth/login",loginUser);
 // router.get("/auth/logout",userMiddleware,logoutUser);
 // valid User
 router.get("/auth/valid", userMiddleware , validUser);
+router.get('/api/user?', userMiddleware, searchUsers);
 
 
 module.exports = router;

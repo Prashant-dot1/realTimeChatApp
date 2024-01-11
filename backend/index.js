@@ -21,7 +21,7 @@ app.use("/api/chat" , chatRoutes);
 
 mongoDBconnect();
 
-const server = app.listen(3000,()=>{
+const server = app.listen(8000,()=>{
     console.log("Running on port 3000");
 });
 
@@ -44,16 +44,11 @@ const io = new Server.Server(server, {
     socket.on('stop typing', (room) => socket.in(room).emit('stop typing'));
   
     socket.on('new message', async (newMessageRecieve) => {
-      let chatId = newMessageRecieve.chatId;
-        const chat = await Chat.find({
-            _id :  chatId
-        });
-
-        console.log(chat);
-    //   if (chat.users.length == 0) {
-    //     console.log('chats.users is not defined');
-    //     return;
-    //   }
+      let chat = newMessageRecieve.chatId;
+      if (!chat.users) {
+        console.log('chats.users is not defined');
+        return;
+      }
 
     //   console.log(chat.users);
       chat.users.forEach((user) => {

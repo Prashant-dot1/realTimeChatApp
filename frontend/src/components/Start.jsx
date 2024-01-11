@@ -13,7 +13,7 @@ function Start() {
             if(!data?.user){
                 pageRoute("/login");
             }else{
-                // pageRoute("/chats");
+                pageRoute("/chats");
                 console.log("navigating to chats")
             }
         }

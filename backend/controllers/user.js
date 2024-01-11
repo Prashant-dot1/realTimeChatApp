@@ -95,4 +95,21 @@ const validUser = async (req,res) => {
     }
 }
 
-module.exports = { registerUser , loginUser , validUser} ;
+
+const searchUsers = async (req, res) => {
+    // const { search } = req.query;
+    console.log(req.query.search)
+    const search = req.query.search
+      ? {
+          $or: [
+            { name: { $regex: req.query.search, $options: 'i' } },
+            { email: { $regex: req.query.search, $options: 'i' } },
+          ],
+        }
+      : {};
+  
+    const users = await User.find(search).find({ _id: { $ne: req.rootUserId } });
+    res.status(200).send(users);
+  };
+
+module.exports = { registerUser , loginUser , validUser , searchUsers} ;
