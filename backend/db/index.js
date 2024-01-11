@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
-
+require('dotenv').config();
 
 // connect to mongoDB
 const mongoDBconnect = () => {
     try{
-        mongoose.connect("mongodb+srv://deployuser:admin123@ecommerceapplication.vbgqffn.mongodb.net/");        
+        mongoose.connect(process.env.MONGODBURL);        
     }
     catch(e){
         console.log(`Error connecting to the database ${e}`);
